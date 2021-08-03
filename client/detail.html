@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css">
+    <script type="text/javascript" src="script.js"></script>
+    <title>Titre ICI</title>
+</head>
+
+<body>
+    <div id="container__grid">
+        <div class="header">
+            <div class="header__titre">JPSI</div>
+            <div class="header__texte">Change Management</div>
+        </div>
+
+        <div class="nav__sidebar">
+            <ul class="nav__sidebar__liste">
+                <li><a href="dash.html">Dashboard</a></li>
+                <li><a href="detail.html">Détail</a></li>
+                <li><a href="#">En cours</a></li>
+                <li><a href="#">Créer un changement</a></li>
+                <li><a href="#">Archives</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+
+            <table class="detail">
+
+                <caption>Récapitulatif de l'ensemble des changements validés par le Change Manager</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Justification</th>
+                        <th scope="col" colspan="2">Date Début/fin</th>
+                        <th scope="col">Statut</th>
+                        <th scope="col">N tâches</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Changement 1</th>
+                        <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, cum?</td>
+                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos unde sequi possimus dolore temporibus voluptas itaque in repudiandae. Eaque beatae perspiciatis, corrupti error asperiores natus!</td>
+                        <td>21/12/2021</td>
+                        <td>15/01/2022</td>
+                        <td>
+                            <select class="detail__status"> 
+                        <option value=valeur1>En attente</option>
+                        <option value=valeur2>En cours</option>
+                        <option value=valeur3>Succés</option>
+                        <option value=valeur4>Echec</option>
+
+                    </select>
+                        </td>
+                        <td>14</td>
+                    </tr>
+
+
+
+            </table>
+
+
+
+
+
+
+        </div>
+
+        <!--  <div class="aside">
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div> -->
+
+        <div class="footer">
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

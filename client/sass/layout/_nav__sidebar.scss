@@ -1,0 +1,49 @@
+.nav__sidebar {
+    opacity: 0.8;
+    grid-row: span 1;
+    background-color: $colour-esa;
+    position: sticky;
+    top: 0%;
+    width: 100%;
+    transition: all 400ms ease-in-out;
+    border-right: 1px $colour-white solid;
+    &__button {
+        width: 50px;
+        height: 50px;
+        font-size: 5em;
+        margin: auto;
+        border-radius: 50%;
+        box-shadow: $box-shadow;
+        color: $colour-white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+        transition: all 400ms ease-in-out;
+        cursor: pointer;
+        &:hover {
+            box-shadow: $box-shadow-hover;
+            transform: scale(1.1);
+        }
+    }
+    &__liste {
+        list-style-type: none;
+        max-height: 650px;
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+        transition: all 400ms ease-in-out;
+        & li {
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & a {
+                font-size: $font-sidebar;
+                color: $colour-white;
+                text-decoration: none;
+            }
+        }
+    }
+}

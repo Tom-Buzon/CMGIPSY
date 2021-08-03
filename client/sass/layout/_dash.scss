@@ -1,0 +1,361 @@
+/* .top__dash {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    &__button {
+        border-radius: 50%;
+        font-size: 3em;
+        color: white;
+        background-color: $colour-esa;
+        padding: 25px;
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        overflow: hidden;
+        transition: all 400ms ease-in-out;
+        cursor: pointer;
+        & p {
+            transform: translateX(45px) translateY(45px);
+            transition: all 400ms ease-in-out;
+            position: relative;
+        }
+        & p span {
+            opacity: 0;
+            padding-left: 25px;
+            transition: all 400ms linear;
+        }
+        &:hover {
+            width: 200px;
+        }
+        &:hover p span {
+            opacity: 1;
+        }
+        &:hover p {
+            transform: translateX(0px) translateY(0px);
+        }
+    }
+}
+ */
+
+.dash {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    &__system {
+        overflow: hidden;
+        background-color: $colour-white;
+        display: flex;
+        height: 100px;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        width: 80%;
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        cursor: pointer;
+        transition: all 400ms ease-in-out;
+        box-shadow: $box-shadow;
+        z-index: 80;
+        &__titre-box {
+            width: 100%;
+            display: flex;
+        }
+        &__titre-box-card {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        &__titre {
+            min-width: 50%;
+            height: 100px;
+            font-weight: bold;
+            transition: all 100ms linear;
+            border-radius: 10px 0 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-card;
+            &:hover {
+                background-color: $colour-esa;
+                color: $colour-white;
+                transform: scale(1.1);
+                font-size: $font-hover;
+            }
+        }
+        &__number {
+            min-width: 50%;
+            height: 100px;
+            color: $colour-white;
+            background-color: $colour-esa;
+            border-radius: 0 10px 10px 0;
+            transition: all 100ms linear;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-card;
+            &:hover {
+                background-color: $colour-white;
+                color: $colour-esa;
+                font-weight: bold;
+                transform: scale(1.1);
+                font-size: $font-hover;
+            }
+        }
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: $box-shadow-hover;
+        }
+        &[data-display="2"] {
+            width: 100%;
+            height: 700px;
+            overflow: auto;
+            &:hover {
+                transform: scale(1);
+            }
+            & .dash__system__titre {
+                background-color: $colour-esa;
+                color: $colour-white;
+                font-size: 3em;
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+            & .dash__system__number {
+                font-size: 3em;
+                &:hover {
+                    transform: scale(1);
+                    background-color: $colour-esa;
+                    color: $colour-white;
+                }
+            }
+        }
+        &__card {
+            max-height: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+            border-radius: 10px;
+            background-color: $colour-white;
+            font-size: 1.5em;
+            margin: 5px auto 5px auto;
+            transition: all 200ms linear;
+            cursor: pointer;
+            border: 1px black solid;
+            overflow: hidden;
+            z-index: 99;
+            box-shadow: $box-shadow;
+            &:hover {
+                transform: scale(1.1);
+            }
+            &__titre {
+                width: 100%;
+                font-weight: bold;
+                transition: all 100ms linear;
+                border-radius: 10px 0 0 10px;
+                display: flex;
+                justify-content: space-around;
+                height: 100%;
+                align-items: center;
+                &:hover {
+                    background-color: $colour-esa;
+                    color: $colour-white;
+                    transform: scale(1.1);
+                    font-size: $font-hover;
+                }
+                &__number {
+                    width: 20%
+                }
+            }
+            &__date {
+                width: 30%;
+                transition: all 100ms linear;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover {
+                    background-color: $colour-esa;
+                    color: $colour-white;
+                    transform: scale(1.1);
+                    font-size: $font-hover;
+                }
+            }
+            &__number {
+                width: 50%;
+                color: $colour-white;
+                background-color: $colour-esa;
+                border-radius: 0 10px 10px 0;
+                transition: all 100ms linear;
+                height: 100%;
+                /* &:hover {
+                    background-color: $colour-white;
+                    color: $colour-esa;
+                    font-weight: bold;
+                    font-size: $font-hover;
+                    transform: scale(1.1);
+                    border: 1px black solid;
+                    width: 19%;
+                } */
+            }
+            &__table {
+                width: 100%;
+                display: none;
+            }
+            &__moza {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                background: $colour-esa;
+                height: 100%;
+                &__tache {
+                    width: 24%;
+                    height: 33%;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    border: 1px $colour-esa solid;
+                    overflow: hidden;
+                    color: transparent;
+                    &:hover {
+                        transform: scale(1.2);
+                        color: $colour-esa;
+                    }
+                    &__table {
+                        @include table2;
+                        & table {
+                            border-collapse: collapse;
+                        }
+                    }
+                }
+            }
+            &[data-display="2"] {
+                width: 100%;
+                max-height: 400px;
+                overflow: auto;
+                &:hover {
+                    transform: scale(1);
+                }
+                & .dash__system__card__titre-box-card {
+                    max-height: 500px;
+                }
+                & .dash__system__card__titre {
+                    height: 50px;
+                    background-color: $colour-white;
+                    color: $colour-esa;
+                    font-size: 2.5em;
+                    &:hover {
+                        background-color: $colour-white;
+                        color: $colour-esa;
+                        transform: scale(1);
+                    }
+                }
+                & .dash__system__card__date {
+                    height: 50px;
+                    background-color: $colour-white;
+                    color: $colour-esa;
+                    &:hover {
+                        background-color: $colour-white;
+                        color: $colour-esa;
+                        transform: scale(1);
+                    }
+                }
+                & .dash__system__card__number {
+                    background-color: $colour-white;
+                    color: $colour-esa;
+                    &:hover {
+                        background-color: $colour-white;
+                        color: $colour-esa;
+                        transform: scale(1);
+                        border: none;
+                    }
+                }
+                & .dash__system__card__table {
+                    display: table;
+                    @include table;
+                    max-height: 500px;
+                    max-width: 100%;
+                    margin: 0;
+                    & table {
+                        border-collapse: collapse;
+                        height: 370px;
+                    }
+                }
+                & .dash__system__card__moza {
+                    height: 400px;
+                    &__table {
+                        display: none;
+                        @include table2;
+                        max-height: 500px;
+                        max-width: 100%;
+                        margin: 0;
+                        & table {
+                            border-collapse: collapse;
+                        }
+                        &__titre {
+                            display: flex;
+                            text-align: center;
+                        }
+                    }
+                    &__tache {
+                        color: $colour-esa;
+                        &[data-display="1"] {
+                            &:hover {
+                                transform: scale(1);
+                            }
+                        }
+                        &[data-display="2"] {
+                            @include tache__grow;
+                            &:hover {
+                                transform: scale(1);
+                                color: $colour-esa;
+                            }
+                            & .dash__system__card__moza__table {
+                                display: table;
+                                &__titre {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#pr1ch1tc1[data-dispplay="2"] {
+    @include tache__grow;
+    min-width: 100%
+}
+
+#pr1ch1tc2[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc3[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc4[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc5[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc6[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc7[data-dispplay="2"] {
+    @include tache__grow
+}
+
+#pr1ch1tc8[data-dispplay="2"] {
+    @include tache__grow
+}

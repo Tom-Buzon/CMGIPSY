@@ -1,0 +1,30 @@
+@media screen and (max-width:1023px) {
+    #container__grid,
+    #container__grid[data-display="1"] {
+        display: flex !important;
+        flex-direction: column;
+        & .nav__sidebar__button {
+            height: 0px;
+            width: 0px;
+            overflow: hidden;
+            margin: 0;
+        }
+    }
+    .nav__sidebar {
+        padding-top: 0%;
+        padding-left: 0%;
+        &__liste {
+            flex-direction: row !important;
+            justify-content: center;
+        }
+    }
+    .nav__sidebar li {
+        margin: 0 10px;
+    }
+    .main p {
+        min-height: auto;
+    }
+    .aside p {
+        height: auto !important;
+    }
+}

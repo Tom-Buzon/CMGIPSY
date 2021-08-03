@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,900i" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>CM-Dashboard</title>
+</head>
+
+<body>
+    <div id="container__grid">
+        <div class="header">
+            <div class="header__titre">JPSI</div>
+            <div class="header__texte">Change Management</div>
+        </div>
+
+        <div class="nav__sidebar" id="sidebar__liste ">
+            <div class="nav__sidebar__button" id="sidebar__button" onclick="growOrDisplay('container__grid')">
+                <p>+</p>
+            </div>
+            <ul class="nav__sidebar__liste ">
+                <li><a href="dash.html ">Dashboard</a></li>
+                <li><a href="detail.html ">Détail</a></li>
+                <li><a href="# ">En cours</a></li>
+                <li><a href="# ">Créer un changement</a></li>
+                <li><a href="# ">Archives</a></li>
+            </ul>
+        </div>
+
+        <div class="main ">
+
+            <!--  <div class="top__dash ">
+                <div class=" top__dash__button ">
+                    <p>+<span>Créer un changement</span></p>
+                </div>
+            </div> -->
+
+            <div class="dash " id="dash">
+
+                <script>
+                    (async() => {
+
+
+                        async function getProjets() {
+                            const URL = "http://localhost:3000/projets/";
+                            const response = await fetch(URL);
+                            return await response.json();
+                        }
+                        async function getChangements(index) {
+                            const URL = "http://localhost:3000/changements/" + index;
+                            const response = await fetch(URL);
+                            return await response.json();
+                        }
+                        async function getTaches(index) {
+                            const URL = "http://localhost:3000/taches/" + index;
+                            const response = await fetch(URL);
+                            return await response.json();
+                        }
+
+                        async function getAll(index) {
+                            const URL = "http://localhost:3000/all/";
+                            const response = await fetch(URL);
+                            return await response.json();
+                        }
+
+                        const all = await getAll();
+                        console.log(all);
+
+
+
+                        const mesProjets = await getProjets();
+                        console.log(mesProjets);
+
+                        const mesChangements = await getChangements(1);
+                        console.log(mesChangements);
+
+                        const mesTaches = await getTaches(1);
+                        console.log(mesTaches);
+
+
+
+                        /*   var dataTest = JSON.stringify(mesProjets);
+                          dataTest =JSON.parse(dataTest);
+                          dataTest.forEach()  */
+
+                        var htmlProjet = "";
+                        var htmlChangements = "";
+                        var listeChangements = [];
+                        var listeTaches = [];
+
+
+                        mesProjets.forEach(async function(projet, index) {
+                            /* console.log(index); */
+                            const mesChangements = await getChangements(projet.id_projet);
+                            listeChangements.push(mesChangements);
+
+                            htmlProjet += `<div class="dash__system " id="pr${projet.id_projet}">
+                                               <div class="dash__system__titre-box " onclick="growOrDisplay('pr${projet.id_projet}')">
+                                                   <div class="dash__system__titre ">${projet.titre}</div>
+                                                   <div class="dash__system__number ">${listeChangements[index].length}</div>
+                                               </div> 
+                                               <div id="pr${projet.id_projet}change">
+                                               </div>
+                                               </div>`;
+
+                            document.getElementById("dash").innerHTML = htmlProjet;
+
+                            mesChangements.forEach(async function(changement) {
+                                console.log(changement);
+
+                                htmlChangements += `<div id="pr1ch1" class="dash__system__card">
+                        <div class="dash__system__titre-box-card">
+
+                            <div class="dash__system__card__titre" onclick="growOrDisplay('pr1ch1')">
+                                <div class="dash__system__card__titre__titre">Changement 1</div>
+                                <div class="dash__system__card__titre__number">8</div>
+                            </div>
+                            <div class="dash__system__card__table ">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col " colspan="2 ">Description</th>
+                                            <th scope="col ">Justification</th>
+                                            <th scope="col ">Date Début/fin</th>
+                                            <th scope="col ">Statut</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, cum?</td>
+                                            <td>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos unde sequi possimus dolore temporibus voluptas itaque in repudiandae. Eaque beatae perspiciatis, corrupti error asperiores natus!</p>
+                                            </td>
+                                            <td>21/12/2021</br>15/01/2022</td>
+                                            <td><select class="detail__status"> 
+                                                <option value=valeur1>En attente</option>
+                                                <option value=valeur2>En cours</option>
+                                                <option value=valeur3>Succés</option>
+                                                <option value=valeur4>Echec</option>
+                        
+                                            </select></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>`
+
+                                document.getElementById("pr1change").innerHTML = htmlChangements
+
+                            });
+
+                        });
+                        console.log(listeChangements);
+
+
+
+                    })();
+                </script>
+
+
+
+
+
+            </div>
+
+            <div class="aside ">
+                <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+            </div>
+
+            <div class="footer ">
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+
+
+
+        </div>
+        <script type="text/javascript " src="script.js "></script>
+
+</body>
+
+</html>
